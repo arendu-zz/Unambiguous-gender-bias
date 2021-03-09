@@ -4,7 +4,6 @@ S -> NPO VP_A
 S -> NP VPO
 S -> NP_A VPO
 S -> NP VPO_A
- -> NP VPO_A
 VP -> V NP
 VP_A -> V NP_A
 VPO -> V NPO
