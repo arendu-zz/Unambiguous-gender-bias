@@ -4,16 +4,17 @@ S -> NPR_Df 'is' NPO_A '.'
 S -> NPR_Df_A 'is' NPO '.'
 S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '.'
 S -> 'People laughed at' NPO_Dfp 'behind' Prp 'back .'
-S -> NPO_Df 'screamed when' Pr 'saw the mouse .'
+S -> NPO_Df V_intr_past 'when' Pr 'saw the mouse .'
 S -> 'When' NPO_Df 'arrived , everyone applauded' Pro '.'
 S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
 S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
 S -> NPO_Df_A 'arrives early for' Prp 'shift .'
 S -> 'Though' PrF 'argued with' PrpF 'colleagues ,' NPO_Df_A 'was respectful .'
-S -> PrF 'enjoys' PrpF 'work as' NPO
-S -> PrM 'enjoys' PrpM 'work as' NPO
+S -> PrF V_psych PrpF 'work as' NPO
+S -> PrM V_psych PrpM 'work as' NPO
 S -> PrM 'works as' NPO
 S -> PrF 'works as' NPO
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
 NPO_Dfp_A -> Dfp A NO
@@ -27,11 +28,12 @@ NPO_A -> 'an' A_V NO
 NPR -> Dp NR
 NPR_A -> Dp A NR
 NO -> NO_V | NO_C
-Df -> 'the' | 'that'
-Dp -> 'my' | 'her' | 'his'
+Df -> 'the' | 'that' | 'my'
+Dp ->  'her' | 'his'
 Dfp -> Df
 Dfp -> Dp
 NO -> NO_C | NO_V
+NO_P -> 'friend' | 'child' | 'boss'
 NO_V -> 'engineer'
 NO_C -> 'physician' | 'plumber' | 'carpenter'
 NO_Vs -> 'engineers'
@@ -49,3 +51,8 @@ ProF -> 'her'
 A -> A_V | A_C
 A_V -> 'aggressive'
 A_C -> 'brilliant' | 'strong' | 'confident'
+V_intr_past -> 'screamed' | 'laughed' | 'cried'
+V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
+V_intr_psych_pres -> 'enjoys' | 'dislikes'
+V_intr_psych_past -> 'enjoyed' | 'disliked'
+V_trn_psych_past -> 'suprised' | 'annoyed' | 'bothered' | 'upset'
