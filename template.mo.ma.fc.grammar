@@ -9,7 +9,7 @@ S -> 'When' NPO_Df 'arrived , everyone applauded' Pro '.'
 S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
 S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
 S -> NPO_Df_A 'arrives early for' Prp 'shift .'
-S -> 'Though' PrF 'argued with' ProF 'colleagues ,' NPO_Df_A 'was respectful .'
+S -> 'Though' PrF 'argued with' PrpF 'colleagues ,' NPO_Df_A 'was respectful .'
 S -> PrF 'enjoys' PrpF 'work as' NPO
 S -> PrM 'enjoys' PrpM 'work as' NPO
 S -> PrM 'works as' NPO
@@ -27,24 +27,24 @@ NPO_A -> 'an' A_V NO
 NPR -> Dp NR
 NPR_A -> Dp A NR
 NO -> NO_V | NO_C
-Df -> 'the' | 'that' 
+Df -> 'the' | 'that'
 Dp -> 'my' | 'her' | 'his'
-Dfp -> Df 
+Dfp -> Df
 Dfp -> Dp
 NO -> NO_C | NO_V
-NO_V -> 'engineer' 
+NO_V -> 'engineer'
 NO_C -> 'physician' | 'plumber' | 'carpenter'
-NO_Vs -> 'engineers' 
+NO_Vs -> 'engineers'
 NO_Cs -> 'physicians' | 'plumbers' | 'carpenters'
 NR -> 'sister' | 'mother'
-Pr -> PrF 
+Pr -> PrF
 PrF -> 'she'
 PrM -> 'he'
 Prp -> PrpM | PrpF
 PrpM -> 'his'
 PrpF -> 'her'
 Pro -> ProM | ProF
-ProM -> 'him' 
+ProM -> 'him'
 ProF -> 'her'
 A -> A_V | A_C
 A_V -> 'aggressive'
