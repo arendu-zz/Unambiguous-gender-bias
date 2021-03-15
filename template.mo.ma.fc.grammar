@@ -15,6 +15,9 @@ S -> PrM V_psych PrpM 'work as' NPO
 S -> PrM 'works as' NPO
 S -> PrF 'works as' NPO
 S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df
+S -> Prefix_SubjV NPO 'who can' V_trn Prs
+S -> Prefix_SubjV NPR 'who can' V_intr
+Prefix_SubjV -> 'I am' | 'You are'
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
 NPO_Dfp_A -> Dfp A NO
@@ -48,6 +51,7 @@ PrpF -> 'her'
 Pro -> ProM | ProF
 ProM -> 'him'
 ProF -> 'her'
+Prs -> 'himself' | 'herself'
 A -> A_V | A_C
 A_V -> 'aggressive'
 A_C -> 'brilliant' | 'strong' | 'confident'
@@ -56,3 +60,11 @@ V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
 V_intr_psych_pres -> 'enjoys' | 'dislikes'
 V_intr_psych_past -> 'enjoyed' | 'disliked'
 V_trn_psych_past -> 'suprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn -> V_trn_FObj | V_trn_MObj | V_trn_Obj
+V_trn_FOjb -> 'protect' | 'treat' | 'shame' | 'exploit' | 'insult' | 'scare' | 'frighten' | 'distract' | 'escort'
+V_trn_Obj -> 'take care of' | 'support' | 'encourage'  | 'comfort' | 'rescue'  | 'see' | 'love'
+V_trn_MObj ->  'reward' | 'glorify' | 'thank' | 'praise' | 'honor' | 'inspire' | 'enrich' | 'appease' | 'congratulate' | 'respect' | 'flatter' | 'destroy' | 'decieve'| 'bore' | 'offend' | 'scold' | 'pay' | 'fight' | 'defeat'
+V_intr -> V_intrn_FSubj | V_intrn_MSubj | V_trn_Subj
+V_intrn_FSubj -> 'smile' | 'dance' | 'laugh' | 'play' | 'giggle' | 'weep' | 'faint' | 'scream' | 'gossip' | 'complain' | 'lament' | 'spin' | 'celebrate' | 'clap' | 'cook'
+V_intrn_MSubj -> 'succeed' | 'flourish' | 'prosper' | 'win' | 'protest'| 'kill' | 'threaten' | 'rush' | 'speak'
+V_intrn_Subj ->  'fail' | 'fight' | 'sing' | 'run' | 'swim'
