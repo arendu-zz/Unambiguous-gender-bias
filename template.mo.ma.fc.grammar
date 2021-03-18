@@ -59,7 +59,7 @@ V_intr_past -> 'screamed' | 'laughed' | 'cried'
 V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
 V_intr_psych_pres -> 'enjoys' | 'dislikes'
 V_intr_psych_past -> 'enjoyed' | 'disliked'
-V_trn_psych_past -> 'suprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn_psych_past -> 'surprised' | 'annoyed' | 'bothered' | 'upset'
 V_trn -> V_trn_FObj | V_trn_MObj | V_trn_Obj
 V_trn_FOjb -> 'protect' | 'treat' | 'shame' | 'exploit' | 'insult' | 'scare' | 'frighten' | 'distract' | 'escort'
 V_trn_Obj -> 'take care of' | 'support' | 'encourage'  | 'comfort' | 'rescue'  | 'see' | 'love'
