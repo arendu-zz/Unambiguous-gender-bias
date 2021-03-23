@@ -1,0 +1,68 @@
+S -> NPO_Df 'is' NPR_A '.'
+S -> NPO_Df_A 'is' NPR '.'
+S -> NPR_Df 'is' NPO_A '.'
+S -> NPR_Df_A 'is' NPO '.'
+S -> 'One thing about' NPO_Dfp ',' PrF 'is' A '.'
+S -> 'People laughed at' NPO_Dfp 'behind' Prp 'back .'
+S -> NPO_Df V_intr_past 'when' PrF 'saw the mouse .'
+S -> 'When' NPO_Df 'arrived , everyone applauded' ProF '.'
+S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
+S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
+S -> NPO_Df_A 'arrives early for' PrpF 'shift .'
+S -> PrF V_psych PrpF 'work as' NPO
+S -> PrM V_psych PrpM 'work as' NPO
+S -> PrM 'works as' NPO
+S -> PrF 'works as' NPO
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df
+S -> Prefix_SubjV NPO 'who can' V_trn Prs
+S -> Prefix_SubjV NPR 'who can' V_intr
+Prefix_SubjV -> 'I am' | 'You are'
+NPO_Df -> Df NO
+NPO_Dfp -> Dfp NO
+NPO_Dfp_A -> Dfp A NO
+NPO_Df_A -> Df A NO
+NPR_Df_A -> Df A NR
+NPR_Df -> Df NR
+NPO -> 'a' NO_C
+NPO -> 'an' NO_V
+NPO_A -> 'a' A_C NO
+NPO_A -> 'an' A_V NO
+NPR -> Dp NR
+NPR_A -> Dp A NR
+NO -> NO_V | NO_C
+Df -> 'the' | 'that' | 'my'
+Dp ->  'her' | 'his'
+Dfp -> Df
+Dfp -> Dp
+NO_P -> NO_Ps | NO_Ppl
+NO_Ps -> 'friend' | 'child' | 'boss' | 'colleague' | 'neighbor'
+NO_Ppl -> 'friends' | 'children' | 'bosses' | 'colleagues' | 'neighbors'
+NO_V -> 'engineer'
+NO_C -> 'physician' | 'plumber' | 'carpenter' | 'construction worker' | 'laborer' | 'driver' | 'sheriff' | 'mover' | 'developer' | 'farmer' | 'guard' | 'chief' | 'janitor' | 'lawyer' | 'cook' | 'CEO' | 'analyst' | 'manager' | 'supervisor' | 'salesperson'
+NO_Vs -> 'engineers'
+NO_Cs -> 'physicians' | 'plumbers' | 'carpenters' | 'construction workers' | 'laborers' | 'drivers' | 'sheriffs' | 'movers' | 'developers' | 'farmers' | 'guards' | 'chiefs' | 'janitors' | 'lawyers' | 'cooks' | 'CEOs' | 'analysts' | 'managers' | 'supervisors' | 'salespeople'
+NR -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend'
+Pr -> PrF | PrM
+PrF -> 'she'
+PrM -> 'he'
+Prp -> PrpF
+PrpM -> 'his'
+PrpF -> 'her'
+Pro -> ProM | ProF
+ProM -> 'him'
+ProF -> 'her'
+Prs -> PrsF
+PrsM -> 'himself'
+PrsF -> 'herself'
+A -> A_V | A_C
+A_V -> 'aggressive' | 'active' | 'adventurous' | 'aggressive' | 'ambitious' | 'analytical' | 'arrogant' | 'assertive' | 'athletic' | 'autocratic' | 'enterprising' | 'independent' | 'indifferent' | 'individualistic' | 'initiative' | 'innovative' | 'intense' | 'inventive' | 'obnoxious' | 'opinionated' | 'opportunistic' | 'unfriendly' | 'unscrupulous'
+A_C -> 'bossy' | 'broad-shouldered' | 'capable' | 'coarse' | 'competitive' | 'conceited' | 'confident' | 'consistent' | 'controlling' | 'courageous' | 'cruel' | 'cynical' | 'decisive' | 'demanding' | 'dependable' | 'determined' | 'disciplined' | 'disorderly' | 'dominant' | 'forceful' | 'greedy' | 'hardhearted' | 'hardworking' | 'humorous' | 'jealous' | 'lazy' | 'level-headed' | 'logical' | 'loud' | 'masculine' | 'muscular' | 'pleasure-seeking' | 'possessive' | 'precise' | 'progressive' | 'promiscuous' | 'proud' | 'quick' | 'rational' | 'realistic' | 'rebellious' | 'reckless' | 'resourceful' | 'rigid' | 'robust' | 'self-confident' | 'self-reliant' | 'self-righteous' | 'self-sufficient' | 'selfish' | 'serious' | 'sharp-witted' | 'show-off' | 'solemn' | 'solid' | 'steady' | 'stern' | 'stingy' | 'stolid' | 'strong' | 'stubborn' | 'sturdy' | 'tall' | 'tough' | 'well-built' | 'witty'
+V_intr_past -> 'screamed' | 'laughed' | 'cried'
+V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
+V_intr_psych_pres -> 'enjoys' | 'dislikes'
+V_intr_psych_past -> 'enjoyed' | 'disliked'
+V_trn_psych_past -> 'surprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn -> V_trn_MObj
+V_trn_MObj ->  'reward' | 'glorify' | 'thank' | 'praise' | 'honor' | 'inspire' | 'enrich' | 'appease' | 'congratulate' | 'respect' | 'flatter' | 'destroy' | 'decieve'| 'bore' | 'offend' | 'scold' | 'pay' | 'fight' | 'defeat'
+V_intr -> V_intrn_MSubj
+V_intrn_MSubj -> 'succeed' | 'flourish' | 'prosper' | 'win' | 'protest'| 'kill' | 'threaten' | 'rush' | 'speak'
