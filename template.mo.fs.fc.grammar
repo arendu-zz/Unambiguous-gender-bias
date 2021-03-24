@@ -4,19 +4,29 @@ S -> NPR_Df 'is' NPO_A '.'
 S -> NPR_Df_A 'is' NPO '.'
 S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '.'
 S -> 'People' V_intr_past 'at' NPO_Dfp 'behind' Prp 'back .'
-S -> NPO_Df V_intr_past 'when' Pr 'saw the mouse .'
-S -> 'When' NPO_Df 'arrived , everyone applauded' Pro '.'
-S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
-S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
-S -> NPO_Df_A 'arrives early for' Prp 'shift .'
-S -> PrF V_psych PrpF 'work as' NPO
-S -> PrM V_psych PrpM 'work as' NPO
-S -> PrM 'works as' NPO
-S -> PrF 'works as' NPO
-S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df
-S -> Prefix_SubjV NPO 'who can' V_trn Prs
-S -> Prefix_SubjV NPR 'who can' V_intr
+S -> NPO_Df V_intr_past 'when' Pr Prs 'saw the mouse .'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO '.'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO_A '.'
+S -> NPO_Df_A 'arrives early for' Prp 'own shift .'
+S -> Pr V_intr_psych Prp 'own work as' NPO
+S -> Pr 'works as' NPO'.'
+S -> Pr 'is employed as' NPO '.'
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df '.'
+S -> Prefix_SubjV NPO 'who can' V_trn Prs '.'
+S -> Prefix_SubjV NPR 'who can' V_intr '.'
 Prefix_SubjV -> 'I am' | 'You are'
+Pr -> PrF
+Prp -> PrpF
+Pro -> ProF
+Prs -> PrsF
+PrF -> 'she'
+PrM -> 'he'
+PrpM -> 'his'
+PrpF -> 'her'
+ProM -> 'him'
+ProF -> 'her'
+PrsM -> 'himself'
+PrsF -> 'herself'
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
 NPO_Dfp_A -> Dfp A NO
@@ -42,22 +52,10 @@ NO_C -> 'physician' | 'plumber' | 'carpenter' | 'construction worker' | 'laborer
 NO_Vs -> 'engineers'
 NO_Cs -> 'physicians' | 'plumbers' | 'carpenters' | 'construction workers' | 'laborers' | 'drivers' | 'sheriffs' | 'movers' | 'developers' | 'farmers' | 'guards' | 'chiefs' | 'janitors' | 'lawyers' | 'cooks' | 'CEOs' | 'analysts' | 'managers' | 'supervisors' | 'salespeople'
 NR -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend'
-Pr -> PrF
-PrF -> 'she'
-PrM -> 'he'
-Prp -> PrpF
-PrpM -> 'his'
-PrpF -> 'her'
-Pro -> ProM | ProF
-ProM -> 'him'
-ProF -> 'her'
-Prs -> PrsF
-PrsM -> 'himself'
-PrsF -> 'herself'
 A -> A_V | A_C
 A_V -> 'affected' | 'affectionate' | 'appreciative' | 'emotional' | 'excitable' | 'imaginative' | 'impressionable' | 'intelligent' | 'organized' | 'outgoing' | 'unambitious' | 'understanding' | 'unintelligent' | 'unselfish' | 'unstable'
 A_C -> 'cautious' | 'changeable' | 'charming' | 'cheerful' | 'childlike' | 'clean' | 'compassionate' | 'complaining' | 'complicated' | 'confused' | 'cooperative' | 'creative' | 'critical' | 'curious' | 'dainty' | 'delicate' | 'dependent' | 'dreamy' | 'family-oriented' | 'fashionable' | 'fault-finding' | 'fearful' | 'feminine' | 'fickle' | 'flatterable' | 'flirtatious' | 'foolish' | 'forgiving' | 'friendly' | 'frivolous' | 'fussy' | 'gentle' | 'graceful' | 'gullible' | 'helpful' | 'honest' | 'kind' | 'loyal' | 'melodramatic' | 'mild' | 'modest' | 'naive' | 'nervous' | 'patient' | 'pleasant' | 'polite' | 'prudish' | 'romantic' | 'self-pitying' | 'sensitive' | 'sentimental' | 'sexy' | 'short' | 'shy' | 'small-boned' | 'smart' | 'soft' | 'softhearted' | 'sophisticated' | 'spiritual' | 'submissive' | 'suggestive' | 'superstitious' | 'sympathetic' | 'talkative' | 'tender' | 'timid' | 'touchy' | 'warm' | 'weak' | 'well-dressed' | 'well-mannered' | 'wholesome' | 'worrying' | 'yielding'
-V_intr_past -> 'screamed' | 'laughed' | 'cried'
+V_intr_past -> 'screamed' | 'cried'
 V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
 V_intr_psych_pres -> 'enjoys' | 'dislikes'
 V_intr_psych_past -> 'enjoyed' | 'disliked'
@@ -66,3 +64,4 @@ V_trn -> V_trn_FObj
 V_trn_FOjb -> 'protect' | 'treat' | 'shame' | 'exploit' | 'insult' | 'scare' | 'frighten' | 'distract' | 'escort'
 V_intr -> V_intrn_FSubj
 V_intrn_FSubj -> 'smile' | 'dance' | 'laugh' | 'play' | 'giggle' | 'weep' | 'faint' | 'scream' | 'gossip' | 'complain' | 'lament' | 'spin' | 'celebrate' | 'clap' | 'cook'
+V_past -> 'worked' | 'met' | 'talked' | 'chatted'

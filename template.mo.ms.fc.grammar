@@ -2,20 +2,31 @@ S -> NPO_Df 'is' NPR_A '.'
 S -> NPO_Df_A 'is' NPR '.'
 S -> NPR_Df 'is' NPO_A '.'
 S -> NPR_Df_A 'is' NPO '.'
-S -> 'One thing about' NPO_Dfp ',' PrF 'is' A '.'
+S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '.'
 S -> 'People' V_intr_past 'at' NPO_Dfp 'behind' Prp 'back .'
-S -> NPO_Df V_intr_past 'when' PrF 'saw the mouse .'
-S -> 'When' NPO_Df 'arrived , everyone applauded' ProF '.'
-S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
-S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
-S -> NPO_Df_A 'arrives early for' PrpF 'shift .'
-S -> PrF V_psych PrpF 'work as' NPO
-S -> PrM V_psych PrpM 'work as' NPO
-S -> PrM 'works as' NPO
-S -> PrF 'works as' NPO
-S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df
-S -> Prefix_SubjV NPO 'who can' V_trn Prs
-S -> Prefix_SubjV NPR 'who can' V_intr
+S -> NPO_Df V_intr_past 'when' Pr Prs 'saw the mouse .'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO '.'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO_A '.'
+S -> NPO_Df_A 'arrives early for' Prp 'own shift .'
+S -> Pr V_intr_psych Prp 'own work as' NPO
+S -> Pr 'works as' NPO'.'
+S -> Pr 'is employed as' NPO '.'
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df '.'
+S -> Prefix_SubjV NPO 'who can' V_trn Prs '.'
+S -> Prefix_SubjV NPR 'who can' V_intr '.'
+Prefix_SubjV -> 'I am' | 'You are'
+Pr -> PrF
+Prp -> PrpF
+Pro -> ProF
+Prs -> PrsF
+PrF -> 'she'
+PrM -> 'he'
+PrpM -> 'his'
+PrpF -> 'her'
+ProM -> 'him'
+ProF -> 'her'
+PrsM -> 'himself'
+PrsF -> 'herself'
 Prefix_SubjV -> 'I am' | 'You are'
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
@@ -42,22 +53,10 @@ NO_C -> 'physician' | 'plumber' | 'carpenter' | 'construction worker' | 'laborer
 NO_Vs -> 'engineers'
 NO_Cs -> 'physicians' | 'plumbers' | 'carpenters' | 'construction workers' | 'laborers' | 'drivers' | 'sheriffs' | 'movers' | 'developers' | 'farmers' | 'guards' | 'chiefs' | 'janitors' | 'lawyers' | 'cooks' | 'CEOs' | 'analysts' | 'managers' | 'supervisors' | 'salespeople'
 NR -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend'
-Pr -> PrF | PrM
-PrF -> 'she'
-PrM -> 'he'
-Prp -> PrpF
-PrpM -> 'his'
-PrpF -> 'her'
-Pro -> ProM | ProF
-ProM -> 'him'
-ProF -> 'her'
-Prs -> PrsF
-PrsM -> 'himself'
-PrsF -> 'herself'
 A -> A_V | A_C
 A_V -> 'aggressive' | 'active' | 'adventurous' | 'aggressive' | 'ambitious' | 'analytical' | 'arrogant' | 'assertive' | 'athletic' | 'autocratic' | 'enterprising' | 'independent' | 'indifferent' | 'individualistic' | 'initiative' | 'innovative' | 'intense' | 'inventive' | 'obnoxious' | 'opinionated' | 'opportunistic' | 'unfriendly' | 'unscrupulous'
 A_C -> 'bossy' | 'broad-shouldered' | 'capable' | 'coarse' | 'competitive' | 'conceited' | 'confident' | 'consistent' | 'controlling' | 'courageous' | 'cruel' | 'cynical' | 'decisive' | 'demanding' | 'dependable' | 'determined' | 'disciplined' | 'disorderly' | 'dominant' | 'forceful' | 'greedy' | 'hardhearted' | 'hardworking' | 'humorous' | 'jealous' | 'lazy' | 'level-headed' | 'logical' | 'loud' | 'masculine' | 'muscular' | 'pleasure-seeking' | 'possessive' | 'precise' | 'progressive' | 'promiscuous' | 'proud' | 'quick' | 'rational' | 'realistic' | 'rebellious' | 'reckless' | 'resourceful' | 'rigid' | 'robust' | 'self-confident' | 'self-reliant' | 'self-righteous' | 'self-sufficient' | 'selfish' | 'serious' | 'sharp-witted' | 'show-off' | 'solemn' | 'solid' | 'steady' | 'stern' | 'stingy' | 'stolid' | 'strong' | 'stubborn' | 'sturdy' | 'tall' | 'tough' | 'well-built' | 'witty'
-V_intr_past -> 'screamed' | 'laughed' | 'cried'
+V_intr_past -> 'screamed' | 'cried'
 V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
 V_intr_psych_pres -> 'enjoys' | 'dislikes'
 V_intr_psych_past -> 'enjoyed' | 'disliked'
@@ -66,3 +65,4 @@ V_trn -> V_trn_MObj
 V_trn_MObj ->  'reward' | 'glorify' | 'thank' | 'praise' | 'honor' | 'inspire' | 'enrich' | 'appease' | 'congratulate' | 'respect' | 'flatter' | 'destroy' | 'decieve'| 'bore' | 'offend' | 'scold' | 'pay' | 'fight' | 'defeat'
 V_intr -> V_intrn_MSubj
 V_intrn_MSubj -> 'succeed' | 'flourish' | 'prosper' | 'win' | 'protest'| 'kill' | 'threaten' | 'rush' | 'speak'
+V_past -> 'worked' | 'met' | 'talked' | 'chatted'
