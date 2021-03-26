@@ -21,7 +21,7 @@ if __name__ == '__main__':
     not_expected_gender = [i for i in genders if i != options.expected_gender][0]
     model = transformers.BertModel.from_pretrained('bert-base-multilingual-cased')
     tokenizer = transformers.BertTokenizer.from_pretrained('bert-base-multilingual-cased')
-    occpations =  set([i.split(',')[0].strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()[1:]])
+    occpations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()[1:]])
     accuracies = {o : [0, 0, 0, 0] for o in occpations}
     accuracies['all'] = [0, 0, 0, 0]
     srcs = [i.strip() for i in open(options.src_file, 'r', encoding='utf8').readlines()]
