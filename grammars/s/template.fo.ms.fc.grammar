@@ -1,0 +1,67 @@
+S -> NPO_Df 'is' NPR_A '.'
+S -> NPO_Df_A 'is' NPR '.'
+S -> NPR_Df 'is' NPO_A '.'
+S -> NPR_Df_A 'is' NPO '.'
+S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '.'
+S -> 'People' V_intr_past 'at' NPO_Dfp 'behind' Prp 'back .'
+S -> NPO_Df V_intr_past 'when' Pr Prs 'saw the mouse .'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO '.'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO_A '.'
+S -> NPO_Df_A 'arrives early for' Prp 'own shift .'
+S -> Pr V_intr_psych Prp 'own work as' NPO
+S -> Pr 'works as' NPO'.'
+S -> Pr 'is employed as' NPO '.'
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df '.'
+S -> Prefix_SubjV NPO 'who can' V_trn Prs '.'
+S -> Prefix_SubjV NPR 'who can' V_intr '.'
+Prefix_SubjV -> 'I am' | 'You are'
+Pr -> PrF
+Prp -> PrpF
+Pro -> ProF
+Prs -> PrsF
+PrF -> 'she'
+PrM -> 'he'
+PrpM -> 'his'
+PrpF -> 'her'
+ProM -> 'him'
+ProF -> 'her'
+PrsM -> 'himself'
+PrsF -> 'herself'
+NPO_Df -> Df NO
+NPO_Dfp -> Dfp NO
+NPO_Dfp_A -> Dfp A NO
+NPO_Df_A -> Df A NO
+NPR_Df_A -> Df A NR
+NPR_Df -> Df NR
+NPO -> 'a' NO_C
+NPO -> 'an' NO_V
+NPO_A -> 'a' A_C NO
+NPO_A -> 'an' A_V NO
+NPR -> Dp NR
+NPR_A -> Dp A NR
+NO -> NO_V | NO_C
+Df -> 'the' | 'that' | 'my'
+Dp ->  'her' | 'his'
+Dfp -> Df
+Dfp -> Dp
+NO_P -> NO_Ps | NO_Ppl
+NO_Ps -> 'friend' | 'child' | 'boss' | 'colleague' | 'neighbor'
+NO_Ppl -> 'friends' | 'children' | 'bosses' | 'colleagues' | 'neighbors'
+NO_V -> 'editor' | 'accountant' | 'auditor' | 'attendant' | 'assistant'
+NO_C -> 'designer' | 'writer' | 'baker' | 'clerk' | 'cashier' | 'counselor' | 'librarian' | 'teacher' | 'cleaner' | 'housekeeper' | 'nurse' | 'receptionist' | 'hairdresser' | 'secretary'
+NO_Vs -> 'editors' | 'accountants' | 'auditors' | 'atttendants' | 'assistants'
+NO_Cs -> 'designers' | 'writers' | 'bakers' | 'clerks' | 'cashiers' | 'counselors' | 'librarians' | 'teachers' | 'cleaners' | 'housekeepers' | 'nurses' | 'receptionists' | 'hairdressers' | 'secretaries'
+NR -> 'sister' | 'mother' 
+A -> A_V | A_C
+A_V -> 'aggressive' | 'adventurous' |  'ambitious' |  'arrogant' | 'athletic' |  'enterprising' |  'indifferent' |  'initiative' | 'intense' |  'obnoxious' | 'opportunistic' |  'unscrupulous'
+A_C -> 'bossy' | 'conceited' | 'cruel' |  'determined' | 'greedy' | 'lazy' | 'muscular' |  'promiscuous' | 'rebellious' | 'self-confident' | 'serious' | 'steady' |  'stubborn' |  'witty'
+V_intr_past -> 'screamed' | 'cried'
+V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
+V_intr_psych_pres -> 'enjoys' | 'dislikes'
+V_intr_psych_past -> 'enjoyed' | 'disliked'
+V_trn_psych_past -> 'surprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn -> V_trn_MObj
+V_trn_MObj ->  'reward' | 'glorify' | 'thank' | 'praise' | 'honor' | 'inspire' | 'enrich' | 'appease' | 'congratulate' | 'respect' | 'flatter' | 'destroy' | 'deceive'| 'bore' | 'offend' | 'scold' | 'pay' | 'fight' | 'defeat'
+V_intr -> V_intrn_MSubj
+V_intrn_MSubj -> 'succeed' | 'flourish' | 'prosper' | 'win' | 'protest'| 'kill' | 'threaten' | 'rush' | 'speak'
+V_past -> 'worked' | 'met' | 'talked' | 'chatted'
