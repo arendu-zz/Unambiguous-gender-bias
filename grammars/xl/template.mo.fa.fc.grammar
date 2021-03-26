@@ -1,0 +1,52 @@
+S -> NPO_Df 'is' NPR_A '.'
+S -> NPO_Df_A 'is' NPR '.'
+S -> NPR_Df 'is' NPO_A '.'
+S -> NPR_Df_A 'is' NPO '.'
+S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '.'
+S -> 'People laughed at' NPO_Dfp 'behind' Prp 'back .'
+S -> NPO_Df 'screamed when' Pr 'saw the mouse .'
+S -> 'When' NPO_Df 'arrived , everyone applauded' Pro '.'
+S -> 'I have worked with' ProF ',' PrF 'is' NPO '.'
+S -> 'I have worked with' ProF ',' PrF 'is' NPO_A '.'
+S -> NPO_Df_A 'arrives early for' Prp 'shift .'
+S -> 'Though' PrF 'argued with' PrpF 'colleagues ,' NPO_Df_A 'was respectful .'
+S -> PrF 'enjoys' PrpF 'work as' NPO
+S -> PrM 'enjoys' PrpM 'work as' NPO
+S -> PrM 'works as' NPO
+S -> PrF 'works as' NPO
+NPO_Df -> Df NO
+NPO_Dfp -> Dfp NO
+NPO_Dfp_A -> Dfp A NO
+NPO_Df_A -> Df A NO
+NPR_Df_A -> Df A NR
+NPR_Df -> Df NR
+NPO -> 'a' NO_C
+NPO -> 'an' NO_V
+NPO_A -> 'a' A_C NO
+NPO_A -> 'an' A_V NO
+NPR -> Dp NR
+NPR_A -> Dp A NR
+NO -> NO_V | NO_C
+Df -> 'the' | 'that'
+Dp -> 'my' | 'her' | 'his'
+Dfp -> Df
+Dfp -> Dp
+NO -> NO_C | NO_V
+NO_V -> 'engineer'
+NO_C -> 'physician' | 'plumber' | 'carpenter'
+NO_Vs -> 'engineers'
+NO_Cs -> 'physicians' | 'plumbers' | 'carpenters'
+NR -> 'sister' | 'mother'
+Pr -> PrF
+PrF -> 'she'
+PrM -> 'he'
+Prp -> PrpM | PrpF
+PrpM -> 'his'
+PrpF -> 'her'
+Pro -> ProM | ProF
+ProM -> 'him'
+ProF -> 'her'
+A -> A_V | A_C
+A_V -> 'emotional'
+A_C -> 'shy' | 'pretty' | 'caring'
+Ns -> 'male' | 'female' | 'women'
