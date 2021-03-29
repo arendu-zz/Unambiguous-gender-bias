@@ -1,0 +1,76 @@
+S -> NPO_Df 'is' NPR_A '. _OCC_BEFORE_'
+S -> NPO_Df_A 'is' NPR '. _OCC_BEFORE_'
+S -> NPR_Df 'is' NPO_A '. _OCC_AFTER_'
+S -> NPR_Df_A 'is' NPO '. _OCC_AFTER_'
+S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '. _OCC_BEFORE_'
+S -> 'People' V_intr_past 'at' NPO_Dfp 'behind' Prp 'back . _OCC_BEFORE_'
+S -> NPO_Df V_intr_past 'when' Pr Prs 'saw the mouse . _OCC_BEFORE_'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO '. _OCC_AFTER_'
+S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO_A '. _OCC_AFTER_'
+S -> NPO_Df_A 'arrives early for' Prp 'own shift . _OCC_BEFORE_'
+S -> Pr V_intr_psych Prp 'own work as' NPO '_OCC_AFTER_'
+S -> Pr 'works as' NPO '. _OCC_AFTER_'
+S -> Pr 'works as' NPO_A '. _OCC_AFTER_'
+S -> Pr 'is employed as' NPO '. _OCC_AFTER_'
+S -> Pr 'is employed as' NPO_A '. _OCC_AFTER_'
+S -> 'That' Prp 'own' NO_P V_intr_past ',' V_trn_psych_past NPO_Df '. _OCC_AFTER_'
+S -> PrM 'is' NPO 'who can' V_trn PrsM '. _OCC_MIDDLE_'
+S -> PrF 'is' NPO 'who can' V_trn PrsF '. _OCC_MIDDLE_'
+S -> PrM 'is' NPO 'who can' V_intr '. _OCC_AFTER_'
+S -> PrF 'is' NPO 'who can' V_intr '. _OCC_AFTER_'
+Pr -> PrM '_CLUE_PrM_' | PrF '_CLUE_PrF_'
+Prp -> PrpM '_CLUE_PrpM_' | PrpF '_CLUE_PrpF_'
+Pro -> ProM '_CLUE_ProM_' | ProF '_CLUE_ProF_'
+Prs -> PrsM '_CLUE_PrsM_' | PrsF '_CLUE_PrsF_'
+PrF -> 'she'
+PrM -> 'he'
+PrpM -> 'his'
+PrpF -> 'her'
+ProM -> 'him'
+ProF -> 'her'
+PrsM -> 'himself'
+PrsF -> 'herself'
+NPO_Df -> Df NO
+NPO_Dfp -> Dfp NO
+NPO_Dfp_A -> Dfp A NO
+NPO_Df_A -> Df A NO
+NPR_Df_A -> Df A NR
+NPR_Df -> Df NR
+NPO -> 'a' NO_C
+NPO -> 'an' NO_V
+NPO_A -> 'a' A_C NO
+NPO_A -> 'an' A_V NO
+NPR -> Dp NR
+NPR_A -> Dp A NR
+NO -> NO_V_F '_OCC_NO_F_' | NO_C_F '_OCC_NO_F_' | NO_V_M '_OCC_NO_M_' | NO_C_M '_OCC_NO_M_'
+Df -> 'the' | 'that' | 'my'
+Dp ->  'her' | 'his'
+Dfp -> Df
+Dfp -> Dp
+NO_P -> NO_Ps | NO_Ppl
+NO_Ps -> 'friend' | 'neighbor'
+NO_Ppl -> 'friends' | 'neighbors'
+NO_V_F -> 'editor' | 'accountant' | 'auditor' | 'attendant' | 'assistant'
+NO_C_F -> 'designer' | 'writer' | 'baker' | 'clerk' | 'cashier' | 'counselor' | 'librarian' | 'teacher' | 'cleaner' | 'housekeeper' | 'nurse' | 'receptionist' | 'hairdresser' | 'secretary'
+NO_V_M -> 'engineer'
+NO_C_M -> 'physician' | 'plumber' | 'carpenter' | 'construction worker' | 'laborer' | 'driver' | 'sheriff' | 'mover' | 'developer' | 'farmer' | 'guard' | 'chief' | 'janitor' | 'lawyer' | 'cook' | 'CEO' | 'analyst' | 'manager' | 'supervisor' | 'salesperson'
+NR -> NR_M '_CLUE_NR_M_' | NR_F '_CLUE_NR_F_'
+NR_M -> 'brother' | 'father' | 'uncle' | 'grandfather' | 'son' | 'nephew' | 'husband' | 'boyfriend'
+NR_F -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend'
+A -> A_V_F '_CONTEXT_A_V_F_' | A_C_F '_CONTEXT_A_C_F_' | A_V_M '_CONTEXT_A_V_M_' | A_C_M '_CONTEXT_A_C_M_'
+A_V_F -> 'affected' | 'affectionate' | 'appreciative' | 'emotional' | 'excitable' | 'imaginative' | 'impressionable' | 'intelligent' | 'organized' | 'outgoing' | 'unambitious' | 'understanding' | 'unintelligent' | 'unselfish' | 'unstable'
+A_C_F -> 'cautious' | 'changeable' | 'charming' | 'cheerful' | 'childlike' | 'clean' | 'compassionate' | 'complaining' | 'complicated' | 'confused' | 'cooperative' | 'creative' | 'critical' | 'curious' | 'dainty' | 'delicate' | 'dependent' | 'dreamy' | 'family-oriented' | 'fashionable' | 'fault-finding' | 'fearful' | 'feminine' | 'fickle' | 'flatterable' | 'flirtatious' | 'foolish' | 'forgiving' | 'friendly' | 'frivolous' | 'fussy' | 'gentle' | 'graceful' | 'gullible' | 'helpful' | 'honest' | 'kind' | 'loyal' | 'melodramatic' | 'mild' | 'modest' | 'naive' | 'nervous' | 'patient' | 'pleasant' | 'polite' | 'prudish' | 'romantic' | 'self-pitying' | 'sensitive' | 'sentimental' | 'sexy' | 'short' | 'shy' | 'small-boned' | 'smart' | 'soft' | 'softhearted' | 'sophisticated' | 'spiritual' | 'submissive' | 'suggestive' | 'superstitious' | 'sympathetic' | 'talkative' | 'tender' | 'timid' | 'touchy' | 'warm' | 'weak' | 'well-dressed' | 'well-mannered' | 'wholesome' | 'worrying' | 'yielding'
+A_V_M -> 'aggressive' | 'active' | 'adventurous' | 'aggressive' | 'ambitious' | 'analytical' | 'arrogant' | 'assertive' | 'athletic' | 'autocratic' | 'enterprising' | 'independent' | 'indifferent' | 'individualistic' | 'initiative' | 'innovative' | 'intense' | 'inventive' | 'obnoxious' | 'opinionated' | 'opportunistic' | 'unfriendly' | 'unscrupulous'
+A_C_M -> 'bossy' | 'broad-shouldered' | 'capable' | 'coarse' | 'competitive' | 'conceited' | 'confident' | 'consistent' | 'controlling' | 'courageous' | 'cruel' | 'cynical' | 'decisive' | 'demanding' | 'dependable' | 'determined' | 'disciplined' | 'disorderly' | 'dominant' | 'forceful' | 'greedy' | 'hardhearted' | 'hardworking' | 'humorous' | 'jealous' | 'lazy' | 'level-headed' | 'logical' | 'loud' | 'masculine' | 'muscular' | 'pleasure-seeking' | 'possessive' | 'precise' | 'progressive' | 'promiscuous' | 'proud' | 'quick' | 'rational' | 'realistic' | 'rebellious' | 'reckless' | 'resourceful' | 'rigid' | 'robust' | 'self-confident' | 'self-reliant' | 'self-righteous' | 'self-sufficient' | 'selfish' | 'serious' | 'sharp-witted' | 'show-off' | 'solemn' | 'solid' | 'steady' | 'stern' | 'stingy' | 'stolid' | 'strong' | 'stubborn' | 'sturdy' | 'tall' | 'tough' | 'well-built' | 'witty'
+V_intr_past -> 'screamed' |  'cried'
+V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
+V_intr_psych_pres -> 'enjoys' | 'dislikes'
+V_intr_psych_past -> 'enjoyed' | 'disliked'
+V_trn_psych_past -> 'surprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn -> V_trn_FObj '_CONTEXT_V_trn_FObj_' | V_trn_MObj '_CONTEXT_V_trn_MObj_'
+V_trn_FOjb -> 'protect' | 'treat' | 'shame' | 'exploit' | 'insult' | 'scare' | 'frighten' | 'distract' | 'escort'
+V_intr -> V_intrn_FSubj '_CONTEXT_V_intrn_FSubj_' | V_intrn_MSubj '_CONTEXT_V_intrn_MSubj_'
+V_intrn_FSubj -> 'smile' | 'dance' | 'laugh' | 'play' | 'giggle' | 'weep' | 'faint' | 'scream' | 'gossip' | 'complain' | 'lament' | 'spin' | 'celebrate' | 'clap' | 'cook'
+V_trn_MObj ->  'reward' | 'glorify' | 'thank' | 'praise' | 'honor' | 'inspire' | 'enrich' | 'appease' | 'congratulate' | 'respect' | 'flatter' | 'destroy' | 'deceive'| 'bore' | 'offend' | 'scold' | 'pay' | 'fight' | 'defeat'
+V_intrn_MSubj -> 'succeed' | 'flourish' | 'prosper' | 'win' | 'protest'| 'kill' | 'threaten' | 'rush' | 'speak'
+V_past -> 'worked' | 'met' | 'talked' | 'chatted'
