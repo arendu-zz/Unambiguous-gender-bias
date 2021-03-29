@@ -48,10 +48,10 @@ NO_P -> NO_Ps | NO_Ppl
 NO_Ps -> 'friend' | 'child' | 'boss' | 'colleague' | 'neighbor'
 NO_Ppl -> 'friends' | 'children' | 'bosses' | 'colleagues' | 'neighbors'
 NO_V -> 'editor' | 'accountant' | 'auditor' | 'attendant' | 'assistant'
-NO_C -> 'designer' | 'writer' | 'baker' | 'clerk' | 'cashier' | 'counselor' | 'librarian' | 'teacher' | 'cleaner' | 'housekeeper' | 'nurse' | 'receptionist' | 'hairdresser' | 'secretary'
+NO_C -> 'designer' | 'writer' | 'baker' | 'clerk' | 'cashier' | 'counselor' | 'librarian' | 'teacher' | 'cleaner' | 'housekeeper' | 'nurse' | 'receptionist' | 'hairdresser' | 'secretary' | 'nanny'
 NO_Vs -> 'editors' | 'accountants' | 'auditors' | 'atttendants' | 'assistants'
-NO_Cs -> 'designers' | 'writers' | 'bakers' | 'clerks' | 'cashiers' | 'counselors' | 'librarians' | 'teachers' | 'cleaners' | 'housekeepers' | 'nurses' | 'receptionists' | 'hairdressers' | 'secretaries'
-NR -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend'
+NO_Cs -> 'designers' | 'writers' | 'bakers' | 'clerks' | 'cashiers' | 'counselors' | 'librarians' | 'teachers' | 'cleaners' | 'housekeepers' | 'nurses' | 'receptionists' | 'hairdressers' | 'secretaries' | 'nannies'
+NR -> 'sister' | 'mother' | 'aunt' | 'grandmother' | 'daughter' | 'niece' | 'wife' | 'girlfriend' | 'girl' | 'lady' | 'gal' | 'woman'
 A -> A_V | A_C
 A_V -> 'aggressive' | 'active' | 'adventurous' | 'aggressive' | 'ambitious' | 'analytical' | 'arrogant' | 'assertive' | 'athletic' | 'autocratic' | 'enterprising' | 'independent' | 'indifferent' | 'individualistic' | 'initiative' | 'innovative' | 'intense' | 'inventive' | 'obnoxious' | 'opinionated' | 'opportunistic' | 'unfriendly' | 'unscrupulous'
 A_C -> 'bossy' | 'broad-shouldered' | 'capable' | 'coarse' | 'competitive' | 'conceited' | 'confident' | 'consistent' | 'controlling' | 'courageous' | 'cruel' | 'cynical' | 'decisive' | 'demanding' | 'dependable' | 'determined' | 'disciplined' | 'disorderly' | 'dominant' | 'forceful' | 'greedy' | 'hardhearted' | 'hardworking' | 'humorous' | 'jealous' | 'lazy' | 'level-headed' | 'logical' | 'loud' | 'masculine' | 'muscular' | 'pleasure-seeking' | 'possessive' | 'precise' | 'progressive' | 'promiscuous' | 'proud' | 'quick' | 'rational' | 'realistic' | 'rebellious' | 'reckless' | 'resourceful' | 'rigid' | 'robust' | 'self-confident' | 'self-reliant' | 'self-righteous' | 'self-sufficient' | 'selfish' | 'serious' | 'sharp-witted' | 'show-off' | 'solemn' | 'solid' | 'steady' | 'stern' | 'stingy' | 'stolid' | 'strong' | 'stubborn' | 'sturdy' | 'tall' | 'tough' | 'well-built' | 'witty'
