@@ -16,7 +16,7 @@ if __name__ == '__main__':
     nlp = stanza.Pipeline(lang=options.lang, 
                           use_gpu=True,
                           verbose=True,
-                          processors='tokenize,mwt,pos',
+                          processors='tokenize,pos',
                           pos_batch_size=bs,
                           tokenize_no_ssplit=True,
                           tokenize_pretokenized=False)
@@ -46,13 +46,18 @@ if __name__ == '__main__':
             for w in sent.words:
                 w_toks.append(w.text)
                 if w.feats is not None:
-                    g = [g for g in w.feats.split('|') if g.startswith('Gender')]
-                    if len(g) == 1:
-                        g = g[0].split('=')[1]
+                    gf = [_g for _g in w.feats.split('|') if _g.startswith('Gender')]
+                    if len(gf) == 1:
+                        g = gf[0].split('=')[1]
                     else:
                         g = '_'
+                else:
+                    g = '_'
                 w_tags.append(g)
+            assert len(w_toks) == len(w_tags), "num feat tags != num tokens"
             file_text_tok.write(' '.join(w_toks) + '\n')
             file_text_tag.write(' '.join(w_tags) + '\n')
     file_text_tok.close()
     file_text_tag.close()
+    print(options.file + '.tok', 'closed')
+    print(options.file + '.tag', 'closed')
