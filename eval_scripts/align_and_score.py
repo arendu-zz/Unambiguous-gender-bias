@@ -20,8 +20,9 @@ if __name__ == '__main__':
     assert options.expected_gender in genders
     not_expected_gender = [i for i in genders if i != options.expected_gender][0]
     model = transformers.BertModel.from_pretrained('bert-base-multilingual-cased')
+    model = model.cuda()
     tokenizer = transformers.BertTokenizer.from_pretrained('bert-base-multilingual-cased')
-    occpations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()[1:]])
+    occpations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()])
     accuracies = {o : [0, 0, 0, 0] for o in occpations}
     accuracies['all'] = [0, 0, 0, 0]
     srcs = [i.strip() for i in open(options.src_file, 'r', encoding='utf8').readlines()]
@@ -29,6 +30,7 @@ if __name__ == '__main__':
     feats = [i.strip() for i in open(options.feat_file, 'r', encoding='utf8').readlines()]
     for src, tgt, feat in zip(srcs, tgts, feats):
         sent_src, sent_tgt, sent_feat = src.strip().split(), tgt.strip().split(), feat.strip().split()
+        assert len(sent_tgt) == len(sent_feat)
         token_src, token_tgt = [tokenizer.tokenize(word) for word in sent_src], [tokenizer.tokenize(word) for word in sent_tgt]
         wid_src, wid_tgt = [tokenizer.convert_tokens_to_ids(x) for x in token_src], [tokenizer.convert_tokens_to_ids(x) for x in token_tgt]
         ids_src, ids_tgt = tokenizer.prepare_for_model(list(itertools.chain(*wid_src)), return_tensors='pt', model_max_length=tokenizer.model_max_length, truncation=True)['input_ids'], tokenizer.prepare_for_model(list(itertools.chain(*wid_tgt)), return_tensors='pt', truncation=True, model_max_length=tokenizer.model_max_length)['input_ids']
@@ -43,8 +45,8 @@ if __name__ == '__main__':
         threshold = 1e-3
         model.eval()
         with torch.no_grad():
-          out_src = model(ids_src.unsqueeze(0), output_hidden_states=True)[2][align_layer][0, 1:-1]
-          out_tgt = model(ids_tgt.unsqueeze(0), output_hidden_states=True)[2][align_layer][0, 1:-1]
+          out_src = model(ids_src.unsqueeze(0).cuda(), output_hidden_states=True)[2][align_layer][0, 1:-1]
+          out_tgt = model(ids_tgt.unsqueeze(0).cuda(), output_hidden_states=True)[2][align_layer][0, 1:-1]
 
           dot_prod = torch.matmul(out_src, out_tgt.transpose(-1, -2))
 
@@ -53,7 +55,7 @@ if __name__ == '__main__':
 
           softmax_inter = (softmax_srctgt > threshold)*(softmax_tgtsrc > threshold)
 
-        align_subwords = torch.nonzero(softmax_inter, as_tuple=False)
+        align_subwords = torch.nonzero(softmax_inter, as_tuple=False).cpu()
         align_words = set()
         for i, j in align_subwords:
           align_words.add( (sub2word_map_src[i], sub2word_map_tgt[j]) )
@@ -74,6 +76,7 @@ if __name__ == '__main__':
         print(f'{color.BLUE}{src}{color.END}\t{color.CYAN}{tgt}{color.END}')
         is_skip = True
         for i, j in sorted(align_words):
+          print(i, j, sent_src, sent_tgt, sent_feat)
           #TODO: This check will ignore occupations with multiple tokens like "Truck driver" etc. Must fix in next version
           if sent_src[i].lower() in occpations:
               is_skip = False
@@ -103,13 +106,13 @@ if __name__ == '__main__':
         v = accuracies[k]
         sv = v[-1]
         pv = [float(i) / (1e-4 + sv) for i in v]
-        pv[0] = f'{color.GREEN}{pv[0]:.2f}{color.END}'
-        pv[1] = f'{color.RED}{pv[1]:.2f}{color.END}'
-        pv[2] = f'{color.YELLOW}{pv[2]:.2f}{color.END}'
+        pv[0] = f'{pv[0]:.2f}'
+        pv[1] = f'{pv[1]:.2f}'
+        pv[2] = f'{pv[2]:.2f}'
         pv[3] = f'{pv[3]:.2f}'
-        v[0] = f'{color.GREEN}{v[0]:.2f}{color.END}'
-        v[1] = f'{color.RED}{v[1]:.2f}{color.END}'
-        v[2] = f'{color.YELLOW}{v[2]:.2f}{color.END}'
-        v[3] = f'{v[3]:.2f}'
+        v[0] = f'{v[0]}'.rjust(3, ' ')
+        v[1] = f'{v[1]}'.rjust(3, ' ')
+        v[2] = f'{v[2]}'.rjust(3, ' ')
+        v[3] = f'{v[3]}'.rjust(3, ' ')
         if sv > 0:
             print('\t'.join([k.ljust(25, ' '), ' '.join([i for i in pv]), ' '.join([i for i in v])]))

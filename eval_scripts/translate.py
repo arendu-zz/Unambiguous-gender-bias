@@ -15,5 +15,5 @@ if __name__ == '__main__':
     options = opt.parse_args()
     model = EasyNMT('m2m_100_1.2B')
     lines =  [l.strip() for l in open(options.inp_file, 'r', encoding='utf8').readlines()]
-    translations = model.translate(lines, target_lang=options.tgt_lang)
+    translations = model.translate(lines, source_lang='en', target_lang=options.tgt_lang, batch_size=64, beam_size=5)
     print('\n'.join(translations))
