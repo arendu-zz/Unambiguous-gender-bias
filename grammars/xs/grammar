@@ -1,0 +1,57 @@
+S -> NPO_Df 'is' NPR_A '. _OCC_BEFORE_'
+Pr -> PrM '_EXP_M_ _CLUE_PrM_' | PrF '_EXP_F_ _CLUE_PrF_'
+Prp -> PrpM '_EXP_M_ _CLUE_PrpM_' | PrpF '_EXP_F_ _CLUE_PrpF_'
+Pro -> ProM '_EXP_M_ _CLUE_ProM_' | ProF '_EXP_F_ _CLUE_ProF_'
+Prs -> PrsM '_EXP_M_ _CLUE_PrsM_' | PrsF '_EXP_F_ _CLUE_PrsF_'
+PrF -> 'she'
+PrM -> 'he'
+PrpM -> 'his'
+PrpF -> 'her'
+ProM -> 'him'
+ProF -> 'her'
+PrsM -> 'himself'
+PrsF -> 'herself'
+NPO_Df -> Df NO
+NPO_Dfp -> Dfp NO
+NPO_Dfp_A -> Dfp A NO
+NPO_Df_A -> Df A NO
+NPR_Df_A -> Df A NR
+NPR_Df -> Df NR
+NPO -> 'a' NO_C
+NPO -> 'an' NO_V
+NPO_A -> 'a' A_C NO
+NPO_A -> 'an' A_V NO
+NPR -> Dp NR
+NPR_A -> Dp A NR
+NO -> NO_V_F '_OCC_NO_F_' | NO_C_F '_OCC_NO_F_' | NO_V_M '_OCC_NO_M_' | NO_C_M '_OCC_NO_M_'
+Df -> 'the' | 'that' | 'my'
+Dp ->  'her' | 'his'
+Dfp -> Df
+Dfp -> Dp
+NN_P -> NN_Ps | NN_Ppl
+NN_Ps -> 'friend' | 'neighbor'
+NN_Ppl -> 'friends' | 'neighbors'
+NO_V_F -> 'editor' | 'accountant' 
+NO_C_F -> 'designer' | 'writer' 
+NO_V_M -> 'engineer'
+NO_C_M -> 'physician' | 'plumber' | 'carpenter' 
+NR -> NR_M '_EXP_M_ _CLUE_NR_M_' | NR_F '_EXP_F_ _CLUE_NR_F_'
+NR_M -> 'brother' | 'father' 
+NR_F -> 'sister' | 'mother' 
+A -> A_V_F '_CONTEXT_A_V_F_' | A_C_F '_CONTEXT_A_C_F_' | A_V_M '_CONTEXT_A_V_M_' | A_C_M '_CONTEXT_A_C_M_'
+A_V_F -> 'emotional' | 'affectionate' 
+A_C_F -> 'dainty' | 'delicate' 
+A_V_M -> 'aggressive' | 'arrogant' 
+A_C_M -> 'masculine' | 'muscular' 
+V_intr_past -> 'screamed' |  'cried'
+V_intr_psych -> V_intr_psych_pres | V_intr_psych_past
+V_intr_psych_pres -> 'enjoys' | 'dislikes'
+V_intr_psych_past -> 'enjoyed' | 'disliked'
+V_trn_psych_past -> 'surprised' | 'annoyed' | 'bothered' | 'upset'
+V_trn -> V_trn_FObj '_CONTEXT_V_trn_FObj_' | V_trn_MObj '_CONTEXT_V_trn_MObj_'
+V_trn_FOjb -> 'protect' | 'insult' | 'scare' | 'distract'
+V_intr -> V_intrn_FSubj '_CONTEXT_V_intrn_FSubj_' | V_intrn_MSubj '_CONTEXT_V_intrn_MSubj_'
+V_intrn_FSubj -> 'smile' | 'gossip' | 'complain' | 'lament' | 'cook'
+V_trn_MObj ->  'inspire' | 'respect' | 'destroy' | 'fight'
+V_intrn_MSubj -> 'succeed' | 'win' | 'protest'| 'kill' | 'threaten'
+V_past -> 'worked' | 'met' | 'talked' | 'chatted'
