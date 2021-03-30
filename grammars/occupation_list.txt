@@ -5,7 +5,7 @@ analysts
 assistant
 assistants
 attendant
-atttendants
+attendants
 auditor
 auditors
 baker
@@ -22,7 +22,6 @@ cleaner
 cleaners
 clerk
 clerks
-construction
 cook
 cooks
 counselor
@@ -77,7 +76,5 @@ supervisor
 supervisors
 teacher
 teachers
-worker
-workers
 writer
 writers
