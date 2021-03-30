@@ -23,21 +23,25 @@
 set -e
 module load anaconda3/5.0.1 cuda/10.1 cudnn/v7.6-cuda.10.0
 source activate easyNMT
-if [ $# -ne 3 ]; then
-  echo 1>&2 "Usage: $0 src_file tgt_lang tgt_gen"
+if [ $# -ne 1 ]; then
+  echo 1>&2 "Usage: $0 tgt_lang"
   exit 3
 fi
-src_file=$1
-tgt=$2
-tgt_gen=$3
+tgt=$1
+proj=/checkpoint/adirendu/Unambiguous-gender-bias
 echo 'rerun cmd:' sbatch run_grid.sh $1 $2 $3
-cmd="python translate.py ${src_file}.en $tgt > ${src_file}.gen.$tgt"
+src_file="$proj/generated/xs/source"
+tgt_file="$proj/generated/xs/target"
+cmd="python translate.py ${src_file}.en $tgt > ${tgt_file}.$tgt"
 echo 'cmd:' $cmd
 eval $cmd
-cmd="python tag.py ${src_file}.gen.$tgt $tgt"
+cmd="python tag.py ${tgt_file}.$tgt $tgt"
 echo 'cmd:' $cmd
 eval $cmd
-cmd="python align_and_score.py ${src_file}.en ${src_file}.gen.$tgt.tok ${src_file}.gen.$tgt.tag /checkpoint/adirendu/Unambiguous-gender-bias/grammars/occupation_list.txt  $tgt_gen > ${src_file}.gen.$tgt.scores"
+cmd="python align.py ${src_file}.en ${src_file}.ans ${tgt_file}.$tgt.tok ${tgt_file}.$tgt.tag $proj/grammars/occupation_list.txt"
+echo 'cmd:' $cmd
+eval $cmd
+cmd="python score.py $proj/grammars/occupation_list.txt ${src_file}.en ${src_file}.ans ${tgt_file}.$tgt.tok.result > ${tgt_file}.$tgt.tok.scores"
 echo 'cmd:' $cmd
 eval $cmd
 echo "done"
