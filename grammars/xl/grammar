@@ -51,6 +51,8 @@ Dfp -> Dp
 NN_P -> NN_Ps | NN_Ppl
 NN_Ps -> 'friend' | 'neighbor'
 NN_Ppl -> 'friends' | 'neighbors'
+NO_C -> NO_C_F '_OCC_NO_F_' | NO_C_M '_OCC_NO_M_'
+NO_V -> NO_V_F '_OCC_NO_F_' | NO_V_M '_OCC_NO_M_'
 NO_V_F -> 'editor' | 'accountant' | 'auditor' | 'attendant' | 'assistant'
 NO_C_F -> 'designer' | 'writer' | 'baker' | 'clerk' | 'cashier' | 'counselor' | 'librarian' | 'teacher' | 'cleaner' | 'housekeeper' | 'nurse' | 'receptionist' | 'hairdresser' | 'secretary'
 NO_V_M -> 'engineer'
