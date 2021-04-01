@@ -12,8 +12,9 @@ if __name__ == '__main__':
     # insert options here
     opt.add_argument('inp_file', type=str, help='this is an English input')
     opt.add_argument('tgt_lang', type=str, help='this should be the target language')
+    opt.add_argument('mt_model', type=str, help='this should be the target language')
     options = opt.parse_args()
-    model = EasyNMT('m2m_100_1.2B')
+    model = EasyNMT(options.mt_model)
     lines =  [l.strip() for l in open(options.inp_file, 'r', encoding='utf8').readlines()]
     translations = model.translate(lines, source_lang='en', target_lang=options.tgt_lang, batch_size=64, beam_size=5)
     print('\n'.join(translations))

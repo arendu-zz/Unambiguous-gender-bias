@@ -23,16 +23,18 @@
 set -e
 module load anaconda3/5.0.1 cuda/10.1 cudnn/v7.6-cuda.10.0
 source activate easyNMT
-if [ $# -ne 1 ]; then
-  echo 1>&2 "Usage: $0 tgt_lang"
+if [ $# -ne 2 ]; then
+  echo 1>&2 "Usage: $0 tgt_lang model"
   exit 3
 fi
 tgt=$1
+model=$2
 proj=/checkpoint/adirendu/Unambiguous-gender-bias
-echo 'rerun cmd:' sbatch run_grid.sh $1 $2 $3
+echo 'rerun cmd:' sbatch run_grid.sh $tgt $model
 src_file="$proj/generated/xs/source"
-tgt_file="$proj/generated/xs/target"
-cmd="python translate.py ${src_file}.en $tgt > ${tgt_file}.$tgt"
+mkdir -p $proj/generated/xs/$model
+tgt_file="$proj/generated/xs/$model/target"
+cmd="python translate.py ${src_file}.en $tgt $model > ${tgt_file}.$tgt"
 echo 'cmd:' $cmd
 eval $cmd
 cmd="python tag.py ${tgt_file}.$tgt $tgt"
