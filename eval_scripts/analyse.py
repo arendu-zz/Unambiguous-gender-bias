@@ -10,13 +10,55 @@ if __name__ == '__main__':
     # insert options here
     opt.add_argument('ans_file', type=str, help='this file should have the ground truth answers')
     opt.add_argument('src_file', type=str, help='this file should have the source text in En')
-    opt.add_argument('feats_file', type=str, help='this file should have the source features')
-    opt.add_argument('result_file', type=str, help='this file should have the gender tag of the target-side occupation noun')
+    opt.add_argument('fts_file', type=str, help='this file should have the source features')
+    opt.add_argument('res_file', type=str, help='this file should have the translated file')
     opt.add_argument('occ_file', type=str, help='text file with occ file')
     options = opt.parse_args()
 
     srcs = [i.strip() for i in open(options.src_file, 'r', encoding='utf8').readlines()]
     answers = [i.strip() for i in open(options.ans_file, 'r', encoding='utf8').readlines()]
-    feats = [i.strip() for i in open(options.feat_file, 'r', encoding='utf8').readlines()]
-    result = open(options.tgt_file + '.result', 'w', encoding='utf-8')
-    alignments = open(options.tgt_file + '.align', 'w', encoding='utf-8')
+    fts = [i.strip() for i in open(options.fts_file, 'r', encoding='utf8').readlines()]
+    results = [i.strip() for i in open(options.res_file, 'r', encoding='utf-8').readlines()]
+    occpations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()])
+    accuracies = {} 
+    assert len(srcs) == len(answers) == len(results) == len(fts), "length mismatch between srcs, answer, results, features"
+    
+    for src, answer, result, feat in zip(srcs, answers, results, fts):
+        o = set(src.lower().split()).intersection(occpations)
+        o = 'occ=' + list(o)[0]
+        f_all = tuple(['all'] + sorted(feat.strip().split()))
+        f_occ = tuple([o] + sorted(feat.strip().split()))
+        sc = accuracies.get((o,), [0, 0, 0, 0])
+        accuracies[(o,)] = sc
+        all_sc = accuracies.get(('all',), [0, 0, 0, 0])
+        accuracies[('all',)] = all_sc
+        f_all_sc = accuracies.get(f_all, [0, 0, 0, 0])
+        accuracies[f_all] = f_all_sc
+        f_occ_sc = accuracies.get(f_occ, [0, 0, 0, 0])
+        accuracies[f_occ] = f_occ_sc
+        sc[3] += 1
+        all_sc[3] += 1
+        f_all_sc[3] += 1
+        f_occ_sc[3] += 1
+        if (answer == '_EXP_M_' and result == 'Masc') or (answer == '_EXP_F_' and result == 'Fem'):
+            sc[0] += 1
+            all_sc[0] += 1
+            f_all_sc[0] += 1
+            f_occ_sc[0] += 1
+        elif (answer == '_EXP_M_' and result == 'Fem') or (answer == '_EXP_F_' and result == 'Masc'):
+            sc[1] += 1
+            all_sc[1] += 1
+            f_all_sc[1] += 1
+            f_occ_sc[1] += 1
+        else:
+            sc[2] += 1
+            all_sc[2] += 1
+            f_all_sc[2] += 1
+            f_occ_sc[2] += 1
+
+    for k, v in sorted(accuracies.items()):
+        if v[3] > 0:
+            vn = [float(i) / (1e-4 + v[-1]) for i in v[:-1]]
+            k_str = ' '.join(list(k))
+            vs = ' '.join([k_str] + [f'{i:.2f}' for i in vn] + [f'{s}' for s in v])
+            print(vs)

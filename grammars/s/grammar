@@ -4,7 +4,7 @@ S -> NPR_Df 'is' NPO_A '. _OCC_AFTER_'
 S -> NPR_Df_A 'is' NPO '. _OCC_AFTER_'
 S -> 'One thing about' NPO_Dfp ',' Pr 'is' A '. _OCC_BEFORE_'
 S -> 'People' V_intr_past 'at' NPO_Dfp 'behind' Prp 'back . _OCC_BEFORE_'
-S -> NPO_Df V_intr_past 'when' Pr Prs 'saw the mouse . _OCC_BEFORE_'
+S -> NPO_Df V_intr_past 'when' PrPrs 'saw the mouse . _OCC_BEFORE_'
 S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO '. _OCC_AFTER_'
 S -> 'I have' V_past 'with' Pro ',' Pr 'is' NPO_A '. _OCC_AFTER_'
 S -> NPO_Df_A 'arrives early for' Prp 'own shift . _OCC_BEFORE_'
@@ -30,16 +30,17 @@ ProM -> 'him'
 ProF -> 'her'
 PrsM -> 'himself'
 PrsF -> 'herself'
+PrPrs -> PrM PrsM | PrF PrsF
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
-NPO_Dfp_A -> Dfp A NO
-NPO_Df_A -> Df A NO
+NPO_Dfp_A -> Dfp A NO '_CONTEXT_NPO_A_'
+NPO_Df_A -> Df A NO '_CONTEXT_NPO_A_'
 NPR_Df_A -> Df A NR
 NPR_Df -> Df NR
 NPO -> 'a' NO_C
 NPO -> 'an' NO_V
-NPO_A -> 'a' A_C NO
-NPO_A -> 'an' A_V NO
+NPO_A -> 'a' A_C NO '_CONTEXT_NPO_A_'
+NPO_A -> 'an' A_V NO '_CONTEXT_NPO_A_'
 NPR -> Dp NR
 NPR_A -> Dp A NR
 NO -> NO_V_F '_OCC_NO_F_' | NO_C_F '_OCC_NO_F_' | NO_V_M '_OCC_NO_M_' | NO_C_M '_OCC_NO_M_'
