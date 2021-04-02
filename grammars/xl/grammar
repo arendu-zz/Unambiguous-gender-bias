@@ -20,7 +20,7 @@ S -> 'That' Prp 'own' NN_P V_intr_past ',' V_trn_psych_past NPO_Df '. _OCC_AFTER
 S -> PrM  '_EXP_M_ _CLUE_Pr_M_ is' NPO 'who can' V_trn PrsM '. _OCC_MIDDLE_'
 S -> PrF '_EXP_F_ _CLUE_Pr_F_ is' NPO 'who can' V_trn PrsF '. _OCC_MIDDLE_'
 S -> PrM '_EXP_M_ _CLUE_Pr_M_ is' NPO 'who can' V_intr '. _OCC_AFTER_'
-S -> PrF '_EXP_M_ _CLUE_Pr_M_ is' NPO 'who can' V_intr '. _OCC_AFTER_'
+S -> PrF '_EXP_F_ _CLUE_Pr_F_ is' NPO 'who can' V_intr '. _OCC_AFTER_'
 Pr -> PrM '_EXP_M_ _CLUE_Pr_M_' | PrF '_EXP_F_ _CLUE_Pr_F_'
 Prp -> PrpM '_EXP_M_ _CLUE_Pr_M_' | PrpF '_EXP_F_ _CLUE_Pr_F_'
 Pro -> ProM '_EXP_M_ _CLUE_Pr_M_' | ProF '_EXP_F_ _CLUE_Pr_F_'
