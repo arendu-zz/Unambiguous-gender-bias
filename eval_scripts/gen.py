@@ -30,7 +30,7 @@ if __name__ == '__main__':
                 tokens.append(word)
         tokens_gen.write(' '.join(tokens).capitalize() + '\n')
         tags_gen.write(' '.join(tags) + '\n')
-        ans_gen.write(' '.join(exp) + '\n')
+        ans_gen.write(' '.join(list(set(exp))) + '\n')
     ans_gen.close()
     tokens_gen.close()
     tags_gen.close()
