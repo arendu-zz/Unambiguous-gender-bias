@@ -8,7 +8,6 @@
 #SBATCH --nodes=1
 #SBATCH --array=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gpus=1
 #SBATCH --mem-per-cpu=2048
 #SBATCH --cpus-per-task=4
 #SBATCH --signal=USR1
@@ -35,16 +34,13 @@ echo 'rerun cmd:' sbatch run_grid.sh $tgt $model
 src_file="$proj/generated/$size/source"
 mkdir -p $proj/generated/$size/$model
 tgt_file="$proj/generated/$size/$model/target"
-cmd="python translate.py ${src_file}.en $tgt $model > ${tgt_file}.$tgt"
-echo 'cmd:' $cmd
-eval $cmd
-cmd="python tag.py ${tgt_file}.$tgt $tgt"
-echo 'cmd:' $cmd
-eval $cmd
-cmd="python align.py ${src_file}.en ${src_file}.ans ${tgt_file}.$tgt.tok ${tgt_file}.$tgt.tag $proj/grammars/occupation_list.txt"
-echo 'cmd:' $cmd
-eval $cmd
-cmd="python score.py $proj/grammars/occupation_list.txt ${src_file}.en ${src_file}.ans ${tgt_file}.$tgt.tok.result > ${tgt_file}.$tgt.tok.scores"
-echo 'cmd:' $cmd
-eval $cmd
-echo "done"
+if [[ -f "${tgt_file}.$tgt.tok.result" ]]; then
+  for typ in "before_after" "context_A" "context_V" "context_AV" "context_npo_A" "generic"; do 
+    cmd="python analyze_${typ}.py ${src_file}.ans ${src_file}.en ${src_file}.feats ${tgt_file}.$tgt.tok.result $proj/grammars/occupation_list.txt > ${tgt_file}.$tgt.tok.analysis.${typ}"
+    echo $cmd
+    eval $cmd
+  done
+  echo "done"
+else
+  echo "skip"
+fi
