@@ -30,7 +30,7 @@ ProM -> 'him'
 ProF -> 'her'
 PrsM -> 'himself'
 PrsF -> 'herself'
-PrPrs -> PrM PrsM | PrF PrsF
+PrPrs -> PrM PrsM '_EXP_M_ _CLUE_Pr_M_' | PrF PrsF '_EXP_F_ _CLUE_Pr_F_'
 NPO_Df -> Df NO
 NPO_Dfp -> Dfp NO
 NPO_Dfp_A -> Dfp A NO '_CONTEXT_NPO_A_'
