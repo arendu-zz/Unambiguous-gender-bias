@@ -35,7 +35,7 @@ src_file="$proj/generated/$size/source"
 mkdir -p $proj/generated/$size/$model
 tgt_file="$proj/generated/$size/$model/target"
 if [[ -f "${tgt_file}.$tgt.tok.result" ]]; then
-  for typ in "before_after" "context_A" "context_V" "context_AV" "context_npo_A" "generic"; do 
+  for typ in "simple" "before_after" "context_A" "context_V" "context_AV" "context_npo_A" "generic"; do 
     cmd="python analyze_${typ}.py ${src_file}.ans ${src_file}.en ${src_file}.feats ${tgt_file}.$tgt.tok.result $proj/grammars/occupation_list.txt > ${tgt_file}.$tgt.tok.analysis.${typ}"
     echo $cmd
     eval $cmd
