@@ -28,6 +28,7 @@ if __name__ == '__main__':
     print('processing doc')
     file_text_tok = open(options.file + '.tok', 'w', encoding='utf-8')
     file_text_tag = open(options.file + '.tag', 'w', encoding='utf-8')
+    file_text_fulltag = open(options.file + '.fulltag', 'w', encoding='utf-8')
     for i in range((len(file_lines) // bs) + 1):
         st = i * bs
         end = (1 + i) * bs
@@ -42,10 +43,12 @@ if __name__ == '__main__':
         assert len(doc.sentences) ==  num_seg_lines, f"{len(doc.sentences)} is not equal to {num_seg_lines}"
         for sent in doc.sentences:
             w_toks = []
+            w_fulltags = []
             w_tags = []
             for w in sent.words:
                 w_toks.append(w.text)
                 if w.feats is not None:
+                    ff = w.feats
                     gf = [_g for _g in w.feats.split('|') if _g.startswith('Gender')]
                     if len(gf) == 1:
                         g = gf[0].split('=')[1]
@@ -53,11 +56,15 @@ if __name__ == '__main__':
                         g = '_'
                 else:
                     g = '_'
+                    ff = '_'
                 w_tags.append(g)
+                w_fulltags.append(ff)
             assert len(w_toks) == len(w_tags), "num feat tags != num tokens"
             file_text_tok.write(' '.join(w_toks) + '\n')
             file_text_tag.write(' '.join(w_tags) + '\n')
+            file_text_fulltag.write(' '.join(w_fulltags) + '\n')
     file_text_tok.close()
     file_text_tag.close()
     print(options.file + '.tok', 'closed')
+    print(options.file + '.fulltag', 'closed')
     print(options.file + '.tag', 'closed')

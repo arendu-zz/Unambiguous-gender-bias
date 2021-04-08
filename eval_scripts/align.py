@@ -19,14 +19,15 @@ if __name__ == '__main__':
     model = transformers.BertModel.from_pretrained('bert-base-multilingual-cased')
     model = model.cuda()
     tokenizer = transformers.BertTokenizer.from_pretrained('bert-base-multilingual-cased')
-    occpations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()])
-    accuracies = {o : [0, 0, 0, 0] for o in occpations}
+    occupations =  set([i.strip().lower() for i in open(options.occ_file, 'r', encoding='utf8').readlines()])
+    accuracies = {o : [0, 0, 0, 0] for o in occupations}
     accuracies['all'] = [0, 0, 0, 0]
     srcs = [i.strip() for i in open(options.src_file, 'r', encoding='utf8').readlines()]
     tgts = [i.strip() for i in open(options.tgt_file, 'r', encoding='utf8').readlines()]
     answers = [i.strip() for i in open(options.ans_file, 'r', encoding='utf8').readlines()]
     feats = [i.strip() for i in open(options.feat_file, 'r', encoding='utf8').readlines()]
     result = open(options.tgt_file + '.result', 'w', encoding='utf-8')
+    occupation_alignments = open(options.tgt_file + '.occ_align', 'w', encoding='utf-8')
     alignments = open(options.tgt_file + '.align', 'w', encoding='utf-8')
     for src, tgt, feat, answer in zip(srcs, tgts, feats, answers):
         sent_src, sent_tgt, sent_feat = src.strip().split(), tgt.strip().split(), feat.strip().split()
@@ -61,9 +62,11 @@ if __name__ == '__main__':
         align_text = []
         for i, j in sorted(align_words):
             align_text.append(sent_src[i] + '->' + sent_tgt[j] + '->' + sent_feat[j])
-            if sent_src[i].lower() in occpations:
+            if sent_src[i].lower() in occupations:
+                occupation_alignments.write(sent_src[i] + '->' + sent_tgt[j] + '\n')
                 align_res = sent_feat[j]
         result.write(align_res + '\n')
         alignments.write(' '.join(align_text) + '\n')
     result.close()
+    occupation_alignments.close()
     alignments.close()
