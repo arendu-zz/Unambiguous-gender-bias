@@ -19,8 +19,9 @@ path='/private/home/adinawilliams/Projects/UnAmbiguousGender/Unambiguous-gender-
 print(os.path.isdir(path))
 
 fulldf=pd.DataFrame()
+fullheadliner=pd.DataFrame()
 for m in ['m2m_100_1.2B','m2m_100_418M','mbart50_m2m','opus-mt']:
-            genericfiles=glob.glob(path +'/'  + m + '/target.*.tok.analysis.context_npo_A')
+            genericfiles=glob.glob(path + '/' + m + '/target.*.tok.analysis.context_npo_A')
             print(m)
             ful_res=pd.DataFrame()
             headliner=pd.DataFrame()
@@ -38,6 +39,8 @@ for m in ['m2m_100_1.2B','m2m_100_418M','mbart50_m2m','opus-mt']:
             ful_res.columns=['Language', 'Clue', 'Occupation', '%Correct', '%Wrong', '%N/A']
                 # print(headliner)
             headliner.columns=['Language','%Correct', '%Wrong', '%N/A']
+            
+            fullheadliner=pd.concat([fullheadliner, headliner.set_index('Language')], axis=1)
 
             listolang=[]
             listofdelt=[]
@@ -55,8 +58,7 @@ for m in ['m2m_100_1.2B','m2m_100_418M','mbart50_m2m','opus-mt']:
             deltadf=pd.DataFrame({'Language': listolang,'delta M': listomdelt, 'deltaF':listofdelt}, index=None).set_index('Language')
             fulldf=pd.concat([fulldf, deltadf], axis=1)
             print(['m2m_100_1.2B','m2m_100_418M','mbart50_m2m','opus-mt'])
-            print('test')
-            print(fulldf)
-            print(fulldf.sort_index().to_latex(index=True))
 
+            print(fulldf.sort_index().to_latex(index=True))
+            print(fullheadliner.sort_index().to_latex(index=True))
 
